@@ -1,0 +1,461 @@
+[gd_scene load_steps=96 format=3 uid="uid://cictnqv6k8xkl"]
+
+[ext_resource type="Script" path="res://Characters/reimu.gd" id="1_ccn7n"]
+[ext_resource type="Texture2D" uid="uid://dc75rkuwuhqbb" path="res://Assets/Reimu Hakurei/reimu_attack_0.png" id="2_qub87"]
+[ext_resource type="Texture2D" uid="uid://jywfwd8kv4c5" path="res://Assets/Reimu Hakurei/reimu_attack_1.png" id="3_6ftps"]
+[ext_resource type="Texture2D" uid="uid://85f43nb4ul3j" path="res://Assets/Reimu Hakurei/reimu_attack_2.png" id="4_fab8j"]
+[ext_resource type="Texture2D" uid="uid://biyoxxyyvs875" path="res://Assets/Reimu Hakurei/reimu_attack_3.png" id="5_bla3e"]
+[ext_resource type="Texture2D" uid="uid://ca5456vkanr5k" path="res://Assets/Reimu Hakurei/reimu_attack_4.png" id="6_eh7ns"]
+[ext_resource type="Texture2D" uid="uid://c5ndgewg8lx1l" path="res://Assets/Reimu Hakurei/reimu_attack_5.png" id="7_bl6fp"]
+[ext_resource type="Texture2D" uid="uid://bcdvls1f2hd0m" path="res://Assets/Reimu Hakurei/reimu_attack_6.png" id="8_7kqgq"]
+[ext_resource type="Texture2D" uid="uid://0jj8jhwyw5cq" path="res://Assets/Reimu Hakurei/reimu_attack_7.png" id="9_akfov"]
+[ext_resource type="Texture2D" uid="uid://disxs0sxdu3pv" path="res://Assets/Reimu Hakurei/reimu_attack_8.png" id="10_ve6lv"]
+[ext_resource type="Texture2D" uid="uid://boui3gnqvvoq" path="res://Assets/Reimu Hakurei/reimu_attack_9.png" id="11_7hsok"]
+[ext_resource type="Texture2D" uid="uid://befoay6fdutlh" path="res://Assets/Reimu Hakurei/reimu_attack_10.png" id="12_nbqyg"]
+[ext_resource type="Texture2D" uid="uid://eu6pl3a420d4" path="res://Assets/Reimu Hakurei/reimu_back_dash_0.png" id="13_3qrgl"]
+[ext_resource type="Texture2D" uid="uid://dgientpiwc1i6" path="res://Assets/Reimu Hakurei/reimu_back_dash_1.png" id="14_82krt"]
+[ext_resource type="Texture2D" uid="uid://khlvv35fspbs" path="res://Assets/Reimu Hakurei/reimu_dash_0.png" id="15_rknyi"]
+[ext_resource type="Texture2D" uid="uid://ldv7p8f1oehf" path="res://Assets/Reimu Hakurei/reimu_dash_1.png" id="16_rtwqp"]
+[ext_resource type="Texture2D" uid="uid://cqkg5ov7e2803" path="res://Assets/Reimu Hakurei/reimu_down_0.png" id="17_l6rba"]
+[ext_resource type="Texture2D" uid="uid://enqn1xlayp28" path="res://Assets/Reimu Hakurei/reimu_down_1.png" id="18_m5aj5"]
+[ext_resource type="Texture2D" uid="uid://br7gy80fjb5yc" path="res://Assets/Reimu Hakurei/reimu_down_2.png" id="19_vr07s"]
+[ext_resource type="Texture2D" uid="uid://c1qprp3maofsb" path="res://Assets/Reimu Hakurei/reimu_down_3.png" id="20_yiwx1"]
+[ext_resource type="Texture2D" uid="uid://cscl6ydw3xlm8" path="res://Assets/Reimu Hakurei/reimu_falling_0.png" id="21_ciggb"]
+[ext_resource type="Texture2D" uid="uid://bisun3ox0h7el" path="res://Assets/Reimu Hakurei/reimu_falling_1.png" id="22_pip5d"]
+[ext_resource type="Texture2D" uid="uid://q42t4034t3u2" path="res://Assets/Reimu Hakurei/reimu_jump_0.png" id="23_grhjn"]
+[ext_resource type="Texture2D" uid="uid://cjkt4dm5ra7wu" path="res://Assets/Reimu Hakurei/reimu_jump_1.png" id="24_0dmk3"]
+[ext_resource type="Texture2D" uid="uid://jjw5ce3y1pl7" path="res://Assets/Reimu Hakurei/reimu_jump_attack_0.png" id="25_xc73g"]
+[ext_resource type="Texture2D" uid="uid://b6g5jgcxdqyhf" path="res://Assets/Reimu Hakurei/reimu_jump_attack_1.png" id="26_sfur2"]
+[ext_resource type="Texture2D" uid="uid://b101i2tb0bkge" path="res://Assets/Reimu Hakurei/reimu_jump_attack_2.png" id="27_0eq0d"]
+[ext_resource type="Texture2D" uid="uid://dmgp2h4yjhn6l" path="res://Assets/Reimu Hakurei/reimu_jump_attack_3.png" id="28_27cow"]
+[ext_resource type="Texture2D" uid="uid://3nxhw50ful1y" path="res://Assets/Reimu Hakurei/reimu_jump_attack_4.png" id="29_f728d"]
+[ext_resource type="Texture2D" uid="uid://b20we1hm1fv5u" path="res://Assets/Reimu Hakurei/reimu_jump_attack_5.png" id="30_s860b"]
+[ext_resource type="Texture2D" uid="uid://d3uled1jabwwv" path="res://Assets/Reimu Hakurei/reimu_jump_attack_6.png" id="31_c3dqv"]
+[ext_resource type="Texture2D" uid="uid://c8wovw8550nvh" path="res://Assets/Reimu Hakurei/reimu_jump_attack_7.png" id="32_o8qcj"]
+[ext_resource type="Texture2D" uid="uid://dnqvwuxhf7qji" path="res://Assets/Reimu Hakurei/reimu_jump_attack_8.png" id="33_7r87e"]
+[ext_resource type="Texture2D" uid="uid://dxg7afl8ve3l0" path="res://Assets/Reimu Hakurei/reimu_jump_attack_9.png" id="34_chhxx"]
+[ext_resource type="Texture2D" uid="uid://dvg768rh7qg6q" path="res://Assets/Reimu Hakurei/reimu_jump_attack_10.png" id="35_jxcye"]
+[ext_resource type="Texture2D" uid="uid://c4xk3laoo5w6a" path="res://Assets/Reimu Hakurei/reimu_nage_0.png" id="36_j2s8h"]
+[ext_resource type="Texture2D" uid="uid://dqnmp2ho7ox0d" path="res://Assets/Reimu Hakurei/reimu_nage_1.png" id="37_r8rnm"]
+[ext_resource type="Texture2D" uid="uid://ct62dbqsagipm" path="res://Assets/Reimu Hakurei/reimu_nage_2.png" id="38_ebg5n"]
+[ext_resource type="Texture2D" uid="uid://b840k2ybx2rlb" path="res://Assets/Reimu Hakurei/reimu_nage_3.png" id="39_472ff"]
+[ext_resource type="Texture2D" uid="uid://baxog8bnwaviu" path="res://Assets/Reimu Hakurei/reimu_nage_4.png" id="40_omjik"]
+[ext_resource type="Texture2D" uid="uid://l1ahuscbgxb" path="res://Assets/Reimu Hakurei/reimu_nage_5.png" id="41_7eesv"]
+[ext_resource type="Texture2D" uid="uid://b8s34lwp3e7cb" path="res://Assets/Reimu Hakurei/reimu_nage_6.png" id="42_vg46h"]
+[ext_resource type="Texture2D" uid="uid://wjxr1jnqde6w" path="res://Assets/Reimu Hakurei/reimu_nage_7.png" id="43_0pxya"]
+[ext_resource type="Texture2D" uid="uid://bll4t1og44frs" path="res://Assets/Reimu Hakurei/reimu_nage_8.png" id="44_x5jr8"]
+[ext_resource type="Texture2D" uid="uid://cmd6ymu6ajqnm" path="res://Assets/Reimu Hakurei/reimu_nage_9.png" id="45_td1kp"]
+[ext_resource type="Texture2D" uid="uid://dcvw3u77etvg" path="res://Assets/Reimu Hakurei/reimu_nage_10.png" id="46_7g17c"]
+[ext_resource type="Texture2D" uid="uid://4ano2le8d20m" path="res://Assets/Reimu Hakurei/reimu_nage_11.png" id="47_c7mwv"]
+[ext_resource type="Texture2D" uid="uid://b6y44yde3ejtl" path="res://Assets/Reimu Hakurei/reimu_nage_12.png" id="48_ewvsy"]
+[ext_resource type="Texture2D" uid="uid://vciu3v4roali" path="res://Assets/Reimu Hakurei/reimu_nage_13.png" id="49_mexmr"]
+[ext_resource type="Texture2D" uid="uid://dks28i4we2rdp" path="res://Assets/Reimu Hakurei/reimu_nage_14.png" id="50_av37k"]
+[ext_resource type="Texture2D" uid="uid://dgp4qielbsbhq" path="res://Assets/Reimu Hakurei/reimu_nage_15.png" id="51_ffqfx"]
+[ext_resource type="Texture2D" uid="uid://cbibl0dwputu1" path="res://Assets/Reimu Hakurei/reimu_nage_16.png" id="52_oekmx"]
+[ext_resource type="Texture2D" uid="uid://678xj7rnd0di" path="res://Assets/Reimu Hakurei/reimu_nage_17.png" id="53_bhb37"]
+[ext_resource type="Texture2D" uid="uid://bi8m528ibt8cg" path="res://Assets/Reimu Hakurei/reimu_nage_hit_0.png" id="54_bfxhe"]
+[ext_resource type="Texture2D" uid="uid://bmny6fokd0y4d" path="res://Assets/Reimu Hakurei/reimu_nage_hit_1.png" id="55_lmsen"]
+[ext_resource type="Texture2D" uid="uid://dboma13oh657" path="res://Assets/Reimu Hakurei/reimu_nage_hit_2.png" id="56_iif3b"]
+[ext_resource type="Texture2D" uid="uid://cfy3888kn4yj3" path="res://Assets/Reimu Hakurei/reimu_nage_hit_3.png" id="57_y1h6a"]
+[ext_resource type="Texture2D" uid="uid://btv1kv06br856" path="res://Assets/Reimu Hakurei/reimu_nage_tame_0.png" id="58_lwy4g"]
+[ext_resource type="Texture2D" uid="uid://coyk6orqlemp5" path="res://Assets/Reimu Hakurei/reimu_nage_tame_1.png" id="59_w8plv"]
+[ext_resource type="Texture2D" uid="uid://bj6ybxqkeifpb" path="res://Assets/Reimu Hakurei/reimu_nage_tame_2.png" id="60_e8ocl"]
+[ext_resource type="Texture2D" uid="uid://dhu48mw43bl1" path="res://Assets/Reimu Hakurei/reimu_pg_0.png" id="61_v1xnm"]
+[ext_resource type="Texture2D" uid="uid://b1jhe0oi2ip2g" path="res://Assets/Reimu Hakurei/reimu_pg_1.png" id="62_rcch6"]
+[ext_resource type="Texture2D" uid="uid://b8mx2oy8k5h1x" path="res://Assets/Reimu Hakurei/reimu_pg_2.png" id="63_rr5na"]
+[ext_resource type="Texture2D" uid="uid://byof8drkoe5lv" path="res://Assets/Reimu Hakurei/reimu_pg_3.png" id="64_oth3k"]
+[ext_resource type="Texture2D" uid="uid://dg46fmyf40n08" path="res://Assets/Reimu Hakurei/reimu_pg_4.png" id="65_qgest"]
+[ext_resource type="Texture2D" uid="uid://7egmdt31d11x" path="res://Assets/Reimu Hakurei/reimu_pg_5.png" id="66_dihwf"]
+[ext_resource type="Texture2D" uid="uid://b7xc7qn5ad08i" path="res://Assets/Reimu Hakurei/reimu_pg_tame_0.png" id="67_uwtwc"]
+[ext_resource type="Texture2D" uid="uid://cp6d00di2mcno" path="res://Assets/Reimu Hakurei/reimu_pg_tame_1.png" id="68_mwf5j"]
+[ext_resource type="Texture2D" uid="uid://be33sg8dgwo2u" path="res://Assets/Reimu Hakurei/reimu_pg_tame_2.png" id="69_mtmt7"]
+[ext_resource type="Texture2D" uid="uid://dmlijmrjmlak1" path="res://Assets/Reimu Hakurei/reimu_pg_tame_3.png" id="70_ulojq"]
+[ext_resource type="Texture2D" uid="uid://dibkqkuv0odi7" path="res://Assets/Reimu Hakurei/reimu_pg_tame_4.png" id="71_ht0ax"]
+[ext_resource type="Texture2D" uid="uid://b6shrr0rg6sas" path="res://Assets/Reimu Hakurei/reimu_pg_tame_5.png" id="72_se3lf"]
+[ext_resource type="Texture2D" uid="uid://vn4fvwelf4h" path="res://Assets/Reimu Hakurei/reimu_pg_tame_6.png" id="73_l1asd"]
+[ext_resource type="Texture2D" uid="uid://cc2mwjlwa04ta" path="res://Assets/Reimu Hakurei/reimu_shot_0.png" id="74_tg126"]
+[ext_resource type="Texture2D" uid="uid://dwsvic2oqffpx" path="res://Assets/Reimu Hakurei/reimu_shot_1.png" id="75_wok2n"]
+[ext_resource type="Texture2D" uid="uid://3ft7wai2vib8" path="res://Assets/Reimu Hakurei/reimu_shot_2.png" id="76_lql7a"]
+[ext_resource type="Texture2D" uid="uid://dliauvnt8hh6b" path="res://Assets/Reimu Hakurei/reimu_shot_3.png" id="77_yjl00"]
+[ext_resource type="Texture2D" uid="uid://c0r7pperuodpu" path="res://Assets/Reimu Hakurei/reimu_stand_0.png" id="78_m3htu"]
+[ext_resource type="Texture2D" uid="uid://b534vjyh8tiat" path="res://Assets/Reimu Hakurei/reimu_stand_1.png" id="79_t5c84"]
+[ext_resource type="Texture2D" uid="uid://bdqoo45xq53im" path="res://Assets/Reimu Hakurei/reimu_stand_2.png" id="80_1uwbm"]
+[ext_resource type="Texture2D" uid="uid://cwewcl4w8qgyu" path="res://Assets/Reimu Hakurei/reimu_stand_3.png" id="81_4nwpq"]
+[ext_resource type="Texture2D" uid="uid://c7minnfxbqv13" path="res://Assets/Reimu Hakurei/reimu_stand_4.png" id="82_quscl"]
+[ext_resource type="Texture2D" uid="uid://mio4wr1g2y11" path="res://Assets/Reimu Hakurei/reimu_stand_5.png" id="83_2ajjf"]
+[ext_resource type="Texture2D" uid="uid://c1lo6ujckfohe" path="res://Assets/Reimu Hakurei/reimu_stand_6.png" id="84_vyj5x"]
+[ext_resource type="Texture2D" uid="uid://cei4w6xfenmey" path="res://Assets/Reimu Hakurei/reimu_stand_7.png" id="85_7i05h"]
+[ext_resource type="Texture2D" uid="uid://c8gxc5i754i5g" path="res://Assets/Reimu Hakurei/reimu_stand_8.png" id="86_eloir"]
+[ext_resource type="Texture2D" uid="uid://dbqyxv4cstt4p" path="res://Assets/Reimu Hakurei/reimu_stand_9.png" id="87_283qy"]
+[ext_resource type="Texture2D" uid="uid://dg5pt538s7pda" path="res://Assets/Reimu Hakurei/reimu_stand_10.png" id="88_eclxd"]
+[ext_resource type="Texture2D" uid="uid://c72on1bwxji8n" path="res://Assets/Reimu Hakurei/reimu_stand_11.png" id="89_rwyhw"]
+[ext_resource type="Texture2D" uid="uid://cp3s42gib8emk" path="res://Assets/Reimu Hakurei/reimu_stand_12.png" id="90_op3ow"]
+[ext_resource type="Texture2D" uid="uid://dug2vlk07ykgs" path="res://Assets/Reimu Hakurei/reimu_stand_13.png" id="91_6srr8"]
+[ext_resource type="Texture2D" uid="uid://cuj8olasmpvnf" path="res://Assets/Reimu Hakurei/reimu_stand_14.png" id="92_jkogw"]
+[ext_resource type="Texture2D" uid="uid://3lxnw6ul710s" path="res://Assets/Reimu Hakurei/reimu_stand_15.png" id="93_s6pew"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_setx6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qub87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6ftps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fab8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bla3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eh7ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bl6fp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7kqgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_akfov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ve6lv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7hsok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nbqyg")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_3qrgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_82krt")
+}],
+"loop": true,
+"name": &"back_dash",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_rknyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rtwqp")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_l6rba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_m5aj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_vr07s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yiwx1")
+}],
+"loop": true,
+"name": &"down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_ciggb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_pip5d")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_grhjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_0dmk3")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_xc73g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_sfur2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0eq0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_27cow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_f728d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_s860b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_c3dqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_o8qcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_7r87e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_chhxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_jxcye")
+}],
+"loop": true,
+"name": &"jump_attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_j2s8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_r8rnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_ebg5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_472ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_omjik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_7eesv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_vg46h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_0pxya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_x5jr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_td1kp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_7g17c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_c7mwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_ewvsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_mexmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_av37k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ffqfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_oekmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_bhb37")
+}],
+"loop": true,
+"name": &"nage",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("54_bfxhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_lmsen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_iif3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_y1h6a")
+}],
+"loop": true,
+"name": &"nage_hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("58_lwy4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_w8plv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_e8ocl")
+}],
+"loop": true,
+"name": &"nage_tame",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("61_v1xnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_rcch6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_rr5na")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_oth3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_qgest")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_dihwf")
+}],
+"loop": true,
+"name": &"pg",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("67_uwtwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_mwf5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_mtmt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_ulojq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_ht0ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_se3lf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_l1asd")
+}],
+"loop": true,
+"name": &"pg_tame",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_tg126")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_wok2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_lql7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_yjl00")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("78_m3htu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_t5c84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_1uwbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_4nwpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_quscl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_2ajjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_vyj5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_7i05h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_eloir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_283qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_eclxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_rwyhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_op3ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_6srr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_jkogw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_s6pew")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quyjt"]
+radius = 11.0
+height = 52.0
+
+[node name="Reimu" type="CharacterBody2D"]
+script = ExtResource("1_ccn7n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_setx6")
+animation = &"down"
+autoplay = "stand"
+frame_progress = 0.683541
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_quyjt")

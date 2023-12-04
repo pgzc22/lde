@@ -1,0 +1,108 @@
+[gd_scene load_steps=22 format=3 uid="uid://cv2t8w827f8y"]
+
+[ext_resource type="Texture2D" uid="uid://df5de3hy6js2l" path="res://Assets/Marisa Kirisame/marisa_laser_2.png" id="1_gkh72"]
+[ext_resource type="Texture2D" uid="uid://c45ub6cqmxfa7" path="res://Assets/Marisa Kirisame/marisa_laser_3.png" id="2_524gi"]
+[ext_resource type="Texture2D" uid="uid://bnk2v1yffprdj" path="res://Assets/Marisa Kirisame/marisa_laser_4.png" id="3_qkigs"]
+[ext_resource type="Texture2D" uid="uid://d0wbukx3aqi8w" path="res://Assets/Marisa Kirisame/marisa_shot_a_0.png" id="4_ecfe1"]
+[ext_resource type="Texture2D" uid="uid://ck5dhulgqgu23" path="res://Assets/Marisa Kirisame/marisa_shot_a_1.png" id="5_8glio"]
+[ext_resource type="Texture2D" uid="uid://glt0tuogwuis" path="res://Assets/Marisa Kirisame/marisa_shot_a_2.png" id="6_v84kj"]
+[ext_resource type="Texture2D" uid="uid://7p627rfdu67g" path="res://Assets/Marisa Kirisame/marisa_shot_a_3.png" id="7_moke2"]
+[ext_resource type="Texture2D" uid="uid://ubgawob2vko1" path="res://Assets/Marisa Kirisame/marisa_shot_a_4.png" id="8_tv1kq"]
+[ext_resource type="Texture2D" uid="uid://bfru5ofi3n07e" path="res://Assets/Marisa Kirisame/marisa_shot_a_5.png" id="9_clj3h"]
+[ext_resource type="Texture2D" uid="uid://d2uqf785iecbc" path="res://Assets/Marisa Kirisame/marisa_shot_a_6.png" id="10_rnpn3"]
+[ext_resource type="Texture2D" uid="uid://3uaxvuim0yf2" path="res://Assets/Marisa Kirisame/marisa_shot_a_7.png" id="11_5ihsi"]
+[ext_resource type="Texture2D" uid="uid://bmmgqf6s7h8uk" path="res://Assets/Marisa Kirisame/marisa_timeshot_0.png" id="12_nrvep"]
+[ext_resource type="Texture2D" uid="uid://cdqwyybkxo6s3" path="res://Assets/Marisa Kirisame/marisa_timeshot_1.png" id="13_uebe2"]
+[ext_resource type="Texture2D" uid="uid://cl0m8ud2ckodi" path="res://Assets/Marisa Kirisame/marisa_timeshot_2.png" id="14_bpbth"]
+[ext_resource type="Texture2D" uid="uid://dq2ols86yorme" path="res://Assets/Marisa Kirisame/marisa_timeshot_3.png" id="15_wj0pv"]
+[ext_resource type="Texture2D" uid="uid://bb7vl2kndqhlb" path="res://Assets/Marisa Kirisame/marisa_timeshot_4.png" id="16_hbp2x"]
+[ext_resource type="Texture2D" uid="uid://dsu1vqpgcd8rg" path="res://Assets/Marisa Kirisame/marisa_timeshot_5.png" id="17_bs42x"]
+[ext_resource type="Texture2D" uid="uid://bvdcrahm46kja" path="res://Assets/Marisa Kirisame/marisa_timeshot_6.png" id="18_qsxxh"]
+[ext_resource type="Texture2D" uid="uid://bv04jp6aacqj8" path="res://Assets/Marisa Kirisame/marisa_timeshot_7.png" id="19_gpaxf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stccd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gkh72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_524gi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qkigs")
+}],
+"loop": true,
+"name": &"laser",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ecfe1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8glio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v84kj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_moke2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tv1kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_clj3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rnpn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5ihsi")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_nrvep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_uebe2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bpbth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wj0pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hbp2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_bs42x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_qsxxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gpaxf")
+}],
+"loop": true,
+"name": &"timeshot",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2d0j"]
+radius = 11.0454
+
+[node name="Area2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_stccd")
+animation = &"shot"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p2d0j")
