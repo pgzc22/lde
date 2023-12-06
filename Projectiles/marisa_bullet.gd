@@ -1,36 +1,52 @@
 extends CharacterBody2D
 
-var speed = 750
+var speed = 100000
 var direction = Vector2.ZERO
+var duration = 1.5
 
 
 func _ready():
 	set_process(true)
 	set_physics_process(true)
+	connect("body_entered", Callable(self, "_on_body_entered"))
 	
 func _physics_process(delta):
 	# Holy shit it fucking moves now after all fuck this crap, that was like what, 5 fucking days worth of work?
+	direction = direction.normalized()
 	velocity.x = direction.x * speed * delta
 	velocity.y = direction.y * speed * delta
+	duration -= delta
+	if duration <= 0:
+		queue_free()
 	move_and_slide()
+	
+func _on_area_2d_body_entered(body):
+	# "body" here is the thing that we've hit
+	# Here we check if the body is a player, so we know to deal damage to them
+	# There are other ways to do this including class names and collision layers
+	if body.is_in_group("enemies"):
+		# You need to make sure your player has a "take_damage" function
+		body.take_damage(1)
+		queue_free()
 #	var collision = move_and_collide(velocity * speed * delta)
 #	if collision:
 #		velocity = velocity.bounce(collision.get_normal())
 #		if collision.get_collider().has_method("hit"):
 #			collision.get_collider().hit()
 
-func _on_VisibilityNotifier2D_screen_exited():
-	# Deletes the bullet when it exits the screen.
-	queue_free()
+#func _on_VisibilityNotifier2D_screen_exited():
+#	# Deletes the bullet when it exits the screen.
+#	queue_free()
 
-func _on_body_entered(body):
-	# "body" here is the thing that we've hit
-	# Here we check if the body is a player, so we know to deal damage to them
-	# There are other ways to do this including class names and collision layers
-	if body.is_in_group("players"):
-		# You need to make sure your player has a "take_damage" function
-		body.take_damage(1)
-		queue_free()
+#func _on_body_entered(body):
+#	# "body" here is the thing that we've hit
+#	# Here we check if the body is a player, so we know to deal damage to them
+#	# There are other ways to do this including class names and collision layers
+#	if body.is_in_group("enemies"):
+#		# You need to make sure your player has a "take_damage" function
+#		body.take_damage(1)
+#		queue_free()
+		
 
 ##var speed = 750
 ##

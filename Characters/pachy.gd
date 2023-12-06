@@ -18,6 +18,7 @@ var target_pos = Vector2()
 var speed = 500 # Speed of the character
 var wait_time = 5.0 # Time to wait at each point
 var timer = 0.0
+var health = 100
 
 func _ready():
 	randomize()
@@ -41,6 +42,10 @@ func _physics_process(delta):
 func get_random_position():
 	return Vector2(randf_range(min_pos.x, max_pos.x), randf_range(min_pos.y, max_pos.y))
 
+func take_damage(dmg):
+	health-=dmg
+	if health==0:
+		queue_free()
 
 #func _physics_process(delta):
 #	if get_parent().current_character == get_parent().reimu:

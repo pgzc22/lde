@@ -46724,7 +46724,7 @@ position = Vector2(333, 361)
 [node name="Marisa" parent="Stage 1" instance=ExtResource("3_xnvd2")]
 position = Vector2(197, 361)
 
-[node name="Pachy" parent="Stage 1" instance=ExtResource("7_ng4ol")]
+[node name="Pachy" parent="Stage 1" groups=["enemies"] instance=ExtResource("7_ng4ol")]
 position = Vector2(1321, 166)
 script = ExtResource("7_ern21")
 
