@@ -9,6 +9,7 @@ var dmg = 1
 func _ready():
 	set_process(true)
 	set_physics_process(true)
+	$AnimatedSprite2D.set_frame(randi_range(0,6))
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	
 func _process(delta):
