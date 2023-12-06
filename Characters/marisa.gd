@@ -13,6 +13,7 @@ var speed : Vector2 = Vector2(300, 300)
 var straight : bool = true
 var bullet_scene = preload("res://Projectiles/marisa_bullet.tscn")
 var target = position
+var alt : bool = false
 
 
 func _physics_process(delta):
@@ -23,10 +24,12 @@ func _physics_process(delta):
 	# Handle Jump.
 	#if Input.is_action_just_pressed("jump") and is_on_floor():
 	#	velocity.y = jump_velocity
+	if Input.is_action_just_pressed("attack_switch"):
+		alt = !alt
 	
 	if Input.is_action_pressed("attack"):
 		target = get_global_mouse_position()
-		attack()
+		attack(alt)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -69,7 +72,7 @@ func _physics_process(delta):
 	move_and_slide()
 	update_facing_direction()
 
-func attack():
+func attack(alt):
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position =  $Marker2D.global_position
 #	print (position)
@@ -78,6 +81,10 @@ func attack():
 #	print (global_position)
 	bullet.direction.x = get_global_mouse_position().x - position.x
 	bullet.direction.y = get_global_mouse_position().y - position.y
+	if (alt):
+		bullet.get_child(0).play("timeshot")
+	else:
+		bullet.get_child(0).play("shot")
 	# Enable the _process() function
 	bullet.set_process(true)
 	# Enable the _physics_process() function

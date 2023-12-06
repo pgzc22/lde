@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 var speed = 100000
 var direction = Vector2.ZERO
-var duration = 1.5
+var duration = 1
+var dmg = 1
 
 
 func _ready():
@@ -10,6 +11,14 @@ func _ready():
 	set_physics_process(true)
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	
+func _process(delta):
+	if $AnimatedSprite2D.animation=="shot":
+		dmg = 1
+	else:
+		dmg = 4
+		duration = 1.7
+		speed = 50000
+
 func _physics_process(delta):
 	# Holy shit it fucking moves now after all fuck this crap, that was like what, 5 fucking days worth of work?
 	direction = direction.normalized()
@@ -26,7 +35,7 @@ func _on_area_2d_body_entered(body):
 	# There are other ways to do this including class names and collision layers
 	if body.is_in_group("enemies"):
 		# You need to make sure your player has a "take_damage" function
-		body.take_damage(1)
+		body.take_damage(dmg)
 		queue_free()
 #	var collision = move_and_collide(velocity * speed * delta)
 #	if collision:

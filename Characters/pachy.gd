@@ -44,7 +44,7 @@ func get_random_position():
 
 func take_damage(dmg):
 	health-=dmg
-	if health==0:
+	if health<=0:
 		queue_free()
 
 #func _physics_process(delta):
