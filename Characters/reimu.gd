@@ -11,12 +11,21 @@ var direction : Vector2 = Vector2.ZERO
 var previous_direction : Vector2 = Vector2.ZERO
 var speed : Vector2 = Vector2(50000, 50000)
 var straight : bool = true
-
+var bullet_scene = preload("res://Projectiles/reimu_bullet.tscn")
+var target = position
+var alt : bool = false
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
+	if Input.is_action_just_pressed("attack_switch"):
+		alt = !alt
+
+	if Input.is_action_pressed("attack"):
+		target = get_global_mouse_position()
+		attack(alt)
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("up") and is_on_floor():
@@ -51,6 +60,24 @@ func update_animation():
 				animated_sprite.play("back_dash")
 				straight = false
 
+func attack(alt):
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position =  $Marker2D.global_position
+#	print (position)
+#	print (get_global_mouse_position())
+#	print (direction)
+#	print (global_position)
+	bullet.direction.x = get_global_mouse_position().x - position.x
+	bullet.direction.y = get_global_mouse_position().y - position.y
+	if (alt):
+		bullet.get_child(0).play("thunder")
+	else:
+		bullet.get_child(0).play("shot")
+	# Enable the _process() function
+	bullet.set_process(true)
+	# Enable the _physics_process() function
+	bullet.set_physics_process(true)
+	get_parent().add_child(bullet)
 #func update_facing_direction():
 #	if velocity.x > 0:
 #		if animated_sprite.flip_h == false:

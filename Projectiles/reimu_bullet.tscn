@@ -1,0 +1,98 @@
+[gd_scene load_steps=20 format=3 uid="uid://ltpihc7w2sey"]
+
+[ext_resource type="Script" path="res://Projectiles/reimu_bullet.gd" id="1_2kag8"]
+[ext_resource type="Texture2D" uid="uid://ddlpmbfu1ntql" path="res://Assets/Reimu Hakurei/reimu2_block_bullet_0.png" id="1_f2ne2"]
+[ext_resource type="Texture2D" uid="uid://dbsy57780h1ea" path="res://Assets/Reimu Hakurei/reimu2_block_bullet_1.png" id="2_e01eg"]
+[ext_resource type="Texture2D" uid="uid://p6ir3x0je00t" path="res://Assets/Reimu Hakurei/reimu2_block_bullet_2.png" id="3_yamx8"]
+[ext_resource type="Texture2D" uid="uid://pv7knilh104k" path="res://Assets/Reimu Hakurei/reimu2_block_bullet_3.png" id="4_mx346"]
+[ext_resource type="Texture2D" uid="uid://dbrpxdyl17fy7" path="res://Assets/Reimu Hakurei/reimu2_block_bullet_4.png" id="5_qwvum"]
+[ext_resource type="Texture2D" uid="uid://dtncbi2o4p0xh" path="res://Assets/Reimu Hakurei/reimu2_block_bullet_5.png" id="6_v688m"]
+[ext_resource type="Texture2D" uid="uid://ckd1cs6qe5a47" path="res://Assets/Reimu Hakurei/reimu2_block_bullet_6.png" id="7_oxvjl"]
+[ext_resource type="Texture2D" uid="uid://cm7buh7dmpoys" path="res://Assets/Reimu Hakurei/reimu2_block_bullet_7.png" id="8_k6if1"]
+[ext_resource type="Texture2D" uid="uid://bhbqs8klb6k27" path="res://Assets/Flandre Scarlet/fran_bullet_mini_0.png" id="10_p5my1"]
+[ext_resource type="Texture2D" uid="uid://jnied5j3cr4u" path="res://Assets/Flandre Scarlet/fran_bullet_mini_1.png" id="11_7yxa3"]
+[ext_resource type="Texture2D" uid="uid://bx320lc15avsh" path="res://Assets/Flandre Scarlet/fran_bullet_mini_2.png" id="12_t601x"]
+[ext_resource type="Texture2D" uid="uid://cmv4wwt0bx0gi" path="res://Assets/Flandre Scarlet/fran_bullet_mini_3.png" id="13_5w6kw"]
+[ext_resource type="Texture2D" uid="uid://bleriljh0jpi" path="res://Assets/Flandre Scarlet/fran_bullet_mini_4.png" id="14_jdkiv"]
+[ext_resource type="Texture2D" uid="uid://d0yxbsrsonaqh" path="res://Assets/Flandre Scarlet/fran_bullet_mini_5.png" id="15_smfw5"]
+[ext_resource type="Texture2D" uid="uid://bp2c3wjvehskp" path="res://Assets/Flandre Scarlet/fran_bullet_mini_6.png" id="16_vwj4u"]
+[ext_resource type="Texture2D" uid="uid://cqajtcbuouejd" path="res://Assets/Flandre Scarlet/fran_bullet_mini_7.png" id="17_n0r32"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_23xxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f2ne2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e01eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yamx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mx346")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qwvum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v688m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oxvjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k6if1")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_p5my1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7yxa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t601x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5w6kw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jdkiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_smfw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vwj4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_n0r32")
+}],
+"loop": true,
+"name": &"thunder",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ydwy"]
+radius = 12.0
+
+[node name="Bullet" type="CharacterBody2D"]
+script = ExtResource("1_2kag8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_23xxk")
+animation = &"shot"
+frame_progress = 0.59543
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6ydwy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
