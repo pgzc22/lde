@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://cv2t8w827f8y"]
+[gd_scene load_steps=23 format=3 uid="uid://cv2t8w827f8y"]
 
 [ext_resource type="Texture2D" uid="uid://df5de3hy6js2l" path="res://Assets/Marisa Kirisame/marisa_laser_2.png" id="1_gkh72"]
+[ext_resource type="Script" path="res://Projectiles/marisa_bullet.gd" id="1_v653q"]
 [ext_resource type="Texture2D" uid="uid://c45ub6cqmxfa7" path="res://Assets/Marisa Kirisame/marisa_laser_3.png" id="2_524gi"]
 [ext_resource type="Texture2D" uid="uid://bnk2v1yffprdj" path="res://Assets/Marisa Kirisame/marisa_laser_4.png" id="3_qkigs"]
 [ext_resource type="Texture2D" uid="uid://d0wbukx3aqi8w" path="res://Assets/Marisa Kirisame/marisa_shot_a_0.png" id="4_ecfe1"]
@@ -98,7 +99,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2d0j"]
 radius = 11.0454
 
-[node name="Area2D" type="CharacterBody2D"]
+[node name="Bullet" type="CharacterBody2D"]
+script = ExtResource("1_v653q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_stccd")

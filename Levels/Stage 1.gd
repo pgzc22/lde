@@ -17,6 +17,11 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("character_switch"):
 		switch_character()
+#	if is_inside_tree():
+#		print("The scene is active.")
+#	else:
+#		print("The scene is not active.")
+
 
 func switch_character():
 	var temp_velocity = current_character.velocity

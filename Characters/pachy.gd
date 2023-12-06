@@ -12,8 +12,8 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = Vector2.ZERO
-var min_pos = Vector2(1150, 29) # Top left corner of the area
-var max_pos = Vector2(1815, 635) # Bottom right corner of the area
+var min_pos = Vector2(731, 246) # Top left corner of the area
+var max_pos = Vector2(1542, 538) # Bottom right corner of the area
 var target_pos = Vector2()
 var speed = 500 # Speed of the character
 var wait_time = 5.0 # Time to wait at each point

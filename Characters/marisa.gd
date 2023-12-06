@@ -11,7 +11,8 @@ var direction : Vector2 = Vector2.ZERO
 var previous_direction : Vector2 = Vector2.ZERO
 var speed : Vector2 = Vector2(300, 300)
 var straight : bool = true
-var bullet = preload("res://Projectiles/marisa_bullet.tscn")
+var bullet_scene = preload("res://Projectiles/marisa_bullet.tscn")
+var target = position
 
 
 func _physics_process(delta):
@@ -24,10 +25,8 @@ func _physics_process(delta):
 	#	velocity.y = jump_velocity
 	
 	if Input.is_action_just_pressed("attack"):
-		var new_bullet = bullet.instantiate()
-		new_bullet.bullet_velocity = (get_global_mouse_position() - animated_sprite.global_position).normalized() * speed
-		new_bullet.global_position = animated_sprite.global_position
-		get_parent().add_child(new_bullet)
+		target = get_global_mouse_position()
+		attack()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -70,6 +69,33 @@ func _physics_process(delta):
 	move_and_slide()
 	update_facing_direction()
 
+func attack():
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position =  $Marker2D.global_position
+#	print (position)
+#	print (get_global_mouse_position())
+#	print (direction)
+#	print (global_position)
+	bullet.direction.x = get_global_mouse_position().x - position.x
+	bullet.direction.y = get_global_mouse_position().y - position.y
+	# Enable the _process() function
+	bullet.set_process(true)
+	# Enable the _physics_process() function
+	bullet.set_physics_process(true)
+	get_parent().add_child(bullet)
+#	bullet.look_at(get_global_mouse_position())
+#	get_parent().add_child(new_bullet)
+#	new_bullet.start(animated_sprite.global_position, rotation)
+#	print(get_global_mouse_position())
+#	print(animated_sprite.global_position)
+#	print((get_global_mouse_position()-animated_sprite.position).normalized())
+#	print((get_global_mouse_position() - animated_sprite.global_position).normalized() * speed)
+#	print(speed)
+#	new_bullet.bullet_velocity = (get_global_mouse_position() - animated_sprite.global_position).normalized() * speed
+#	new_bullet.global_position = animated_sprite.global_position
+#	get_parent().add_child(new_bullet)
+	
+	
 func update_animation():
 	if velocity == Vector2.ZERO:
 		animated_sprite.play("stop")
