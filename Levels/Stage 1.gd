@@ -30,7 +30,7 @@ func switch_character():
 		reimu.queue_free()
 		marisa = marisa_scene.instantiate()
 		current_character = marisa
-		current_character.global_position = reimu.global_position
+		current_character.position = reimu.position
 		current_character.velocity = temp_velocity
 		self.add_child(current_character)
 	elif current_character == marisa:
@@ -38,7 +38,7 @@ func switch_character():
 		marisa.queue_free()
 		reimu = reimu_scene.instantiate()
 		current_character = reimu
-		current_character.global_position = marisa.global_position
+		current_character.position = marisa.position
 		current_character.velocity = temp_velocity
 		self.add_child(current_character)
 

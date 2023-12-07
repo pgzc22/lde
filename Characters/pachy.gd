@@ -16,13 +16,16 @@ var min_pos = Vector2(731, 246) # Top left corner of the area
 var max_pos = Vector2(1542, 538) # Bottom right corner of the area
 var target_pos = Vector2()
 var speed = 500 # Speed of the character
-var wait_time = 5.0 # Time to wait at each point
+#var wait_time = 5.0 # Time to wait at each point # Not needed anymore as all the movement is scripted
 var timer = 0.0
+var phase = 0
+var last_phase = 0
 var health = 100
+var phase_change : bool = false
 
 func _ready():
 	randomize()
-	target_pos = get_random_position()
+	target_pos = Vector2(1512,575)
 
 func _physics_process(delta):
 	animated_sprite.play("idle")
@@ -33,10 +36,54 @@ func _physics_process(delta):
 		position = target_pos
 		velocity=Vector2.ZERO
 		timer += delta
-		if timer >= wait_time:
-			timer = 0
-			target_pos = get_random_position()
-			speed = randi_range(100,1000)
+		if timer >= last_phase+10:
+			last_phase=last_phase+10
+			phase+=1
+		match phase:
+			0:
+				target_pos = Vector2(1512,575)
+			1:
+				target_pos = Vector2(1327,90)
+			2:
+				target_pos = Vector2(1592,862)
+			3:
+				target_pos = Vector2(1301,733)
+			4:
+				target_pos = Vector2(1397,414)
+			5:
+				target_pos = Vector2(1519,258)
+			6:
+				target_pos = Vector2(1730,155)
+			7:
+				target_pos = Vector2(1833,455)
+			8:
+				target_pos = Vector2(1454,189)
+			9:
+				target_pos = Vector2(1798,876)
+			10:
+				target_pos = Vector2(1300,791)
+			11:
+				target_pos = Vector2(1425,318)
+			12:
+				target_pos = Vector2(1638,349)
+			13:
+				target_pos = Vector2(1171,243)
+			14:
+				target_pos = Vector2(1697,295)
+			15:
+				target_pos = Vector2(994,166)
+			16:
+				target_pos = Vector2(509,169)
+			17:
+				target_pos = Vector2(817,578)
+			18:
+				target_pos = Vector2(1512,575)
+				timer = 0
+				last_phase=0
+				phase=0
+		print(phase_change)
+		phase_change = phase_switcher(phase, phase_change, target_pos, position)
+		speed = randi_range(250,300)
 	move_and_slide()
 
 func get_random_position():
@@ -46,6 +93,19 @@ func take_damage(dmg):
 	health-=dmg
 	if health<=0:
 		queue_free()
+		
+func phase_switcher(phase, phase_change, target_pos, position):
+	if phase == 0 or phase % 2 == 0:
+		if !phase_change:
+			if position == target_pos:
+				Spawning.spawn({"position": Vector2(target_pos.x-65, target_pos.y), "rotation":0}, str(phase+1), "0")
+				return !phase_change
+	else:
+		if phase_change:
+			if position == target_pos:
+				Spawning.spawn({"position": Vector2(target_pos.x-65, target_pos.y), "rotation":0}, str(phase+1), "0")
+				return !phase_change
+	return phase_change
 
 #func _physics_process(delta):
 #	if get_parent().current_character == get_parent().reimu:

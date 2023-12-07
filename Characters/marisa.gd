@@ -79,8 +79,8 @@ func attack(alt):
 #	print (get_global_mouse_position())
 #	print (direction)
 #	print (global_position)
-	bullet.direction.x = get_global_mouse_position().x - position.x
-	bullet.direction.y = get_global_mouse_position().y - position.y
+	bullet.direction.x = get_global_mouse_position().x - global_position.x
+	bullet.direction.y = get_global_mouse_position().y - global_position.y
 	if (alt):
 		bullet.get_child(0).play("timeshot")
 	else:

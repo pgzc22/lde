@@ -89,7 +89,7 @@ script = ExtResource("1_v653q")
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_stccd")
 animation = &"shot"
-frame_progress = 0.579235
+frame_progress = 0.407892
 
 [node name="Area2D" type="Area2D" parent="."]
 
