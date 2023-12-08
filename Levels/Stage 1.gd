@@ -6,6 +6,8 @@ var marisa: CharacterBody2D
 var current_character: CharacterBody2D
 var switch_key: int = KEY_CTRL
 var lives = 300 # Too many
+var one_up_scene = preload("res://Scene Cutters/1up.tscn")
+var tune_scene = preload("res://Scene Cutters/change_tune.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,3 +51,15 @@ func switch_character():
 # So the camera won't follow the boss after all, tried it and it just gets too crazy to follow and makes you unable to move properly (because you've got to keep going)
 # also, it makes it extremely difficult to balance. Camera will be static and the world will move instead.
 # Bullets will belong to the world, not to the characters
+
+
+func _on_timer_1_up_timeout():
+	var one_up = one_up_scene.instantiate()
+	one_up.position = Vector2(randi_range(0, 1914), randi_range(0, 985))
+	self.add_child(one_up)
+
+
+func _on_timer_tune_timeout():
+	var tune = tune_scene.instantiate()
+	tune.position = Vector2(randi_range(0, 1914), randi_range(0, 985))
+	self.add_child(tune)

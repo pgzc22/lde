@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://lw543vd4rkqs"]
+
+[ext_resource type="Script" path="res://Scene Cutters/change_tune.gd" id="1_fkbvu"]
+[ext_resource type="Texture2D" uid="uid://lclj4rvblu0p" path="res://Assets/Marisa Kirisame/marisa_obu_5.png" id="2_mbaa8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knktk"]
+radius = 6.08276
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_fkbvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mbaa8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_knktk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -32,6 +32,7 @@ var bullet_scene = preload("res://Projectiles/pachy_bullet.tscn")
 @export var direction_change_timer = 0
 @onready var shoot_cooldown = $ShootTimer
 @onready var rotator = $RotatingSpawn
+var narnia_scene = preload("res://Scene Cutters/narnia.tscn")
 
 
 func _ready():
@@ -120,6 +121,8 @@ func get_random_position():
 func take_damage(dmg):
 	health-=dmg
 	if health<=0:
+		var narnia = narnia_scene.instantiate()
+		get_parent().add_child(narnia)
 		queue_free()
 		
 #func phase_switcher(phase, phase_change, target_pos, position):

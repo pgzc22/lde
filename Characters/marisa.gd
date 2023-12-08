@@ -15,6 +15,8 @@ var bullet_scene = preload("res://Projectiles/marisa_bullet.tscn")
 var target = position
 var alt : bool = false
 
+func _ready():
+	add_to_group("players")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -147,6 +149,9 @@ func take_damage(dmg):
 	if get_parent().lives <= 0:
 		# This should be just game over
 		queue_free()
+
+func one_up():
+	get_parent().lives +=1
 #func _on_animated_sprite_2d_animation_finished():
 #	if(animated_sprite.animation == "direction change"):
 #		animation_locked = false

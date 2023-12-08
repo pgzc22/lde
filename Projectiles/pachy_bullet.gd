@@ -13,6 +13,8 @@ func _on_body_entered(body):
 	# You need to make sure your player has a "take_damage" function
 		body.take_damage(dmg)
 		queue_free()
+	elif body.is_in_group("objects"):
+		queue_free()
 
 func _on_timer_timeout():
 	queue_free()

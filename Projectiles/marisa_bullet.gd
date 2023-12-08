@@ -38,6 +38,8 @@ func _on_area_2d_body_entered(body):
 		# You need to make sure your player has a "take_damage" function
 		body.take_damage(dmg)
 		queue_free()
+	elif body.is_in_group("objects"):
+		queue_free()
 #	var collision = move_and_collide(velocity * speed * delta)
 #	if collision:
 #		velocity = velocity.bounce(collision.get_normal())

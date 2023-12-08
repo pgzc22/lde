@@ -15,6 +15,9 @@ var bullet_scene = preload("res://Projectiles/reimu_bullet.tscn")
 var target = position
 var alt : bool = false
 
+func _ready():
+	add_to_group("players")
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -84,7 +87,8 @@ func take_damage(dmg):
 	if get_parent().lives <= 0:
 		# This should be just game over
 		queue_free()
-
+func one_up():
+	get_parent().lives +=1
 #func update_facing_direction():
 #	if velocity.x > 0:
 #		if animated_sprite.flip_h == false:
