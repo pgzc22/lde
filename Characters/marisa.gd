@@ -145,12 +145,14 @@ func switch_animation(switch) -> void:
 	update_animation()
 
 func take_damage(dmg):
+	$AudioStreamPlayer2D.play()
 	get_parent().lives -= 1
 	if get_parent().lives <= 0:
 		# This should be just game over
 		queue_free()
 
 func one_up():
+	$AudioStreamPlayer2D2.play()
 	get_parent().lives +=1
 #func _on_animated_sprite_2d_animation_finished():
 #	if(animated_sprite.animation == "direction change"):

@@ -83,11 +83,13 @@ func attack(alt):
 	get_parent().add_child(bullet)
 
 func take_damage(dmg):
+	$AudioStreamPlayer2D.play()
 	get_parent().lives -= 1
 	if get_parent().lives <= 0:
 		# This should be just game over
 		queue_free()
 func one_up():
+	$AudioStreamPlayer2D2.play()
 	get_parent().lives +=1
 #func update_facing_direction():
 #	if velocity.x > 0:
