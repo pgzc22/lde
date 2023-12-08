@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://tkqurxefn3l3"]
+[gd_scene load_steps=12 format=3 uid="uid://tkqurxefn3l3"]
 
 [ext_resource type="Script" path="res://Levels/Stage 1.gd" id="1_1s3st"]
 [ext_resource type="Texture2D" uid="uid://lbp7gjftxinb" path="res://Assets/gothicvania patreon collection/Gothic-Castle-Files/PNG/layers/gothic-castle-tileset.png" id="2_ur7x2"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bh58427ucb4il" path="res://Assets/Soundtrack/01 Ignition.mp3" id="7_4n7fh"]
 [ext_resource type="PackedScene" uid="uid://cjkhix5shwteh" path="res://Scene Cutters/moving_pong.tscn" id="7_6thkx"]
 [ext_resource type="AudioStream" uid="uid://diulfv1q0wphr" path="res://Assets/Soundtrack/17. 爆裂タウマゼイン (Prod. チバニャン) [Instrumental].mp3" id="8_qgxar"]
+[ext_resource type="Texture2D" uid="uid://bxlhcw16dxjmw" path="res://Assets/Touhou Hyouibana (AoCF)/Simple Backgrounds/Palace of the Earth Spirits (A).png" id="9_r2ogo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sa6b"]
 texture = ExtResource("2_ur7x2")
@@ -299,6 +300,13 @@ stream = ExtResource("7_4n7fh")
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_qgxar")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("9_r2ogo")
 
 [connection signal="timeout" from="Timer1Up" to="." method="_on_timer_1_up_timeout"]
 [connection signal="timeout" from="TimerTune" to="." method="_on_timer_tune_timeout"]

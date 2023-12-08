@@ -5,7 +5,7 @@ var reimu: CharacterBody2D
 var marisa: CharacterBody2D
 var current_character: CharacterBody2D
 var switch_key: int = KEY_CTRL
-var lives = 300 # Too many
+var lives = 3 # Too many
 var one_up_scene = preload("res://Scene Cutters/1up.tscn")
 var tune_scene = preload("res://Scene Cutters/change_tune.tscn")
 
