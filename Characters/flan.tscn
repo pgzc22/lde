@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp6t4jny153k8"]
+
+[ext_resource type="Script" path="res://Characters/pachy.gd" id="1_x83on"]
+[ext_resource type="Texture2D" uid="uid://diyxfvjc0obfp" path="res://Assets/Flandre Scarlet/fran_ivent_stand_0.png" id="2_mrgsy"]
+[ext_resource type="Texture2D" uid="uid://cb5juq0wt0gi6" path="res://Assets/Flandre Scarlet/fran_ivent_stand_1.png" id="3_1clxg"]
+[ext_resource type="Texture2D" uid="uid://2agf0qri60ix" path="res://Assets/Flandre Scarlet/fran_ivent_stand_2.png" id="4_k6kue"]
+[ext_resource type="Texture2D" uid="uid://c48fhqulsjv18" path="res://Assets/Flandre Scarlet/fran_ivent_stand_3.png" id="5_w2rlu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wasu3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mrgsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1clxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k6kue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w2rlu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4y02"]
+height = 58.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_x83on")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wasu3")
+animation = &"idle"
+frame_progress = 0.619457
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 2)
+shape = SubResource("CapsuleShape2D_x4y02")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-50, 0)
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="RotatingSpawn" type="Node2D" parent="."]
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]

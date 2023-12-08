@@ -154,6 +154,16 @@ func take_damage(dmg):
 func one_up():
 	$AudioStreamPlayer2D2.play()
 	get_parent().lives +=1
+
+func change_tune():
+	get_parent().get_node("AudioStreamPlayer2D").queue_free()
+	get_parent().get_node("AudioStreamPlayer2D2").play()
+	
+func next_level(level):
+	if level == 2:
+		get_tree().change_scene_to_file("res://Levels/stage_3.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Levels/stage_2.tscn")
 #func _on_animated_sprite_2d_animation_finished():
 #	if(animated_sprite.animation == "direction change"):
 #		animation_locked = false

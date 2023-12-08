@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsh0twflep1g5"]
+
+[ext_resource type="Script" path="res://Levels/settings.gd" id="1_1pggr"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 897.0
+offset_top = 435.0
+offset_right = 937.0
+offset_bottom = 475.0
+script = ExtResource("1_1pggr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+text = "Nanashi"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+text = "1 Credit"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="text_submitted" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="toggled" from="VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

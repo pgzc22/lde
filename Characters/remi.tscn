@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://b18fqkait0gts"]
+
+[ext_resource type="Script" path="res://Characters/pachy.gd" id="1_quekt"]
+[ext_resource type="Texture2D" uid="uid://cnyfq6rpqmck8" path="res://Assets/Remilia Scarlet/remi_des6_0.png" id="2_abape"]
+[ext_resource type="Texture2D" uid="uid://cblkj3anhxqes" path="res://Assets/Remilia Scarlet/remi_des6_1.png" id="3_f78wf"]
+[ext_resource type="Texture2D" uid="uid://kljse1nn33ry" path="res://Assets/Remilia Scarlet/remi_des6_2.png" id="4_2q7u6"]
+[ext_resource type="Texture2D" uid="uid://bn1koscvn71ji" path="res://Assets/Remilia Scarlet/remi_des6_3.png" id="5_y6dvg"]
+[ext_resource type="Texture2D" uid="uid://cff5xexm62phf" path="res://Assets/Remilia Scarlet/remi_des6_4.png" id="6_wd88b"]
+[ext_resource type="Texture2D" uid="uid://bejfe0ht0v2wy" path="res://Assets/Remilia Scarlet/remi_des6_5.png" id="7_8atnc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ew441"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_abape")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f78wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2q7u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y6dvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wd88b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8atnc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4y02"]
+height = 58.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_quekt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ew441")
+animation = &"idle"
+frame_progress = 0.626411
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 2)
+shape = SubResource("CapsuleShape2D_x4y02")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-32, 0)
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="RotatingSpawn" type="Node2D" parent="."]
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]

@@ -12,4 +12,8 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	pass # Replace with function body.
+	if body.is_in_group("players"):
+		if get_parent().get_name()=="Stage 2":
+			body.next_level(2)
+		else:
+			body.next_level(3)

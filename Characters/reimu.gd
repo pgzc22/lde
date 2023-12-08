@@ -88,9 +88,20 @@ func take_damage(dmg):
 	if get_parent().lives <= 0:
 		# This should be just game over
 		queue_free()
+
 func one_up():
 	$AudioStreamPlayer2D2.play()
 	get_parent().lives +=1
+
+func change_tune():
+	get_parent().get_node("AudioStreamPlayer2D").queue_free()
+	get_parent().get_node("AudioStreamPlayer2D2").play()
+	
+func next_level(level):
+	if level == 2:
+		get_tree().change_scene_to_file("res://Levels/stage_3.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Levels/stage_2.tscn")
 #func update_facing_direction():
 #	if velocity.x > 0:
 #		if animated_sprite.flip_h == false:

@@ -15,6 +15,7 @@ func _ready():
 	marisa = $Marisa
 	current_character = reimu
 	marisa.queue_free()
+	$AudioStreamPlayer2D.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
