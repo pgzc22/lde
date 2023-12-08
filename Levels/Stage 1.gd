@@ -5,6 +5,7 @@ var reimu: CharacterBody2D
 var marisa: CharacterBody2D
 var current_character: CharacterBody2D
 var switch_key: int = KEY_CTRL
+var lives = 300 # Too many
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

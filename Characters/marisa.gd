@@ -141,7 +141,12 @@ func switch_animation(switch) -> void:
 	animated_sprite.play(switch)
 	await animated_sprite.animation_finished
 	update_animation()
-	
+
+func take_damage(dmg):
+	get_parent().lives -= 1
+	if get_parent().lives <= 0:
+		# This should be just game over
+		queue_free()
 #func _on_animated_sprite_2d_animation_finished():
 #	if(animated_sprite.animation == "direction change"):
 #		animation_locked = false

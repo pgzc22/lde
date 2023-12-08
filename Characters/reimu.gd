@@ -78,6 +78,13 @@ func attack(alt):
 	# Enable the _physics_process() function
 	bullet.set_physics_process(true)
 	get_parent().add_child(bullet)
+
+func take_damage(dmg):
+	get_parent().lives -= 1
+	if get_parent().lives <= 0:
+		# This should be just game over
+		queue_free()
+
 #func update_facing_direction():
 #	if velocity.x > 0:
 #		if animated_sprite.flip_h == false:

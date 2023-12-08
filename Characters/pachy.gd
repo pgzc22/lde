@@ -22,10 +22,30 @@ var phase = 0
 var last_phase = 0
 var health = 100
 var phase_change : bool = false
+var bullet_scene = preload("res://Projectiles/pachy_bullet.tscn")
+@export var shot_cooldown = 0.1
+@export var spawn_point_count = 15
+@export var radius = 50
+@export var rotate_speed = 100
+@export var direction_change_interval = 3
+@export var rotation_direction = 1
+@export var direction_change_timer = 0
+@onready var shoot_cooldown = $ShootTimer
+@onready var rotator = $RotatingSpawn
+
 
 func _ready():
 	randomize()
 	target_pos = Vector2(1512,575)
+	for i in range (spawn_point_count):
+		var spawn_point = Node2D.new()
+		var angle = i * (2*PI/spawn_point_count)
+		var pos = Vector2(radius * cos(angle), radius * sin(angle))
+		spawn_point.position = pos
+		spawn_point.rotation = pos.angle()
+		rotator.add_child(spawn_point)
+	shoot_cooldown.wait_time = shot_cooldown
+	shoot_cooldown.start()
 
 func _physics_process(delta):
 	animated_sprite.play("idle")
@@ -81,9 +101,17 @@ func _physics_process(delta):
 				timer = 0
 				last_phase=0
 				phase=0
-		print(phase_change)
-		phase_change = phase_switcher(phase, phase_change, target_pos, position)
+#		print(phase_change)
+		#phase_change = phase_switcher(phase, phase_change, target_pos, position)
 		speed = randi_range(250,300)
+	direction_change_timer += delta
+	if direction_change_timer >= direction_change_interval:
+		direction_change_timer = 0
+		rotation_direction *= -1
+	var new_rotation = rotator.rotation_degrees + rotate_speed * rotation_direction * delta
+	rotator.rotation_degrees =fmod(new_rotation, 360)
+#	if position==target_pos:
+#		shoot_cooldown.start()
 	move_and_slide()
 
 func get_random_position():
@@ -94,18 +122,46 @@ func take_damage(dmg):
 	if health<=0:
 		queue_free()
 		
-func phase_switcher(phase, phase_change, target_pos, position):
-	if phase == 0 or phase % 2 == 0:
-		if !phase_change:
-			if position == target_pos:
-				Spawning.spawn({"position": Vector2(target_pos.x-65, target_pos.y), "rotation":0}, str(phase+1), "0")
-				return !phase_change
-	else:
-		if phase_change:
-			if position == target_pos:
-				Spawning.spawn({"position": Vector2(target_pos.x-65, target_pos.y), "rotation":0}, str(phase+1), "0")
-				return !phase_change
-	return phase_change
+#func phase_switcher(phase, phase_change, target_pos, position):
+#	if phase == 0 or phase % 2 == 0:
+#		if !phase_change:
+#			if position == target_pos:
+#				Spawning.spawn({"position": Vector2(target_pos.x-65, target_pos.y), "rotation":0}, str(phase+1), "0")
+#				return !phase_change
+#	else:
+#		if phase_change:
+#			if position == target_pos:
+#				Spawning.spawn({"position": Vector2(target_pos.x-65, target_pos.y), "rotation":0}, str(phase+1), "0")
+#				return !phase_change
+#	return phase_change
+
+#func attack(shot_cooldown, delta):
+#	shot_cooldown -= delta
+#	if (shot_cooldown<=0):
+#		for r in $Marker2D.get_children():
+#			var bullet = bullet_scene.instantiate()
+#			bullet.position = r.global_position
+#			bullet.rotation = r.global_rotation
+##			bullet.global_position =  $Marker2D.global_position
+#			# Enable the _process() function
+#			bullet.set_process(true)
+#			# Enable the _physics_process() function
+#			bullet.set_physics_process(true)
+#			get_parent().add_child(bullet)
+#		shot_cooldown = 0.2
+#	return shot_cooldown
+
+func _on_timer_timeout():
+	for r in rotator.get_children():
+		var bullet = bullet_scene.instantiate()
+		bullet.position = r.global_position
+		bullet.rotation = r.global_rotation
+#		bullet.global_position =  $Marker2D.global_position
+		# Enable the _process() function
+		bullet.set_process(true)
+		# Enable the _physics_process() function
+		bullet.set_physics_process(true)
+		get_parent().add_child(bullet)
 
 #func _physics_process(delta):
 #	if get_parent().current_character == get_parent().reimu:
@@ -139,6 +195,6 @@ func phase_switcher(phase, phase_change, target_pos, position):
 #		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 
-	move_and_slide()
+#	move_and_slide()
 	
 #	animated_sprite.position = get_parent().current_character.position + own_movement

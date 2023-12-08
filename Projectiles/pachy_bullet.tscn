@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cptidbtmjtclk"]
+
+[ext_resource type="Script" path="res://Projectiles/pachy_bullet.gd" id="1_h0nnt"]
+[ext_resource type="Texture2D" uid="uid://d0vumvvdeym1o" path="res://addons/BulletUpHell/BulletScene/Sprites/Bullet_11.png" id="2_out33"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkn32"]
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_h0nnt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_out33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lkn32")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
