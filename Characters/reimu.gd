@@ -100,8 +100,10 @@ func change_tune():
 func next_level(level):
 	if level == 2:
 		get_tree().change_scene_to_file("res://Levels/stage_3.tscn")
-	else:
+	elif level == 3:
 		get_tree().change_scene_to_file("res://Levels/stage_2.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Levels/menu.tscn")
 #func update_facing_direction():
 #	if velocity.x > 0:
 #		if animated_sprite.flip_h == false:

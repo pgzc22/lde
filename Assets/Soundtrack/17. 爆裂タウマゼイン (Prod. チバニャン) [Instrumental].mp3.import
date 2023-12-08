@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://diulfv1q0wphr"
+path="res://.godot/imported/17. 爆裂タウマゼイン (Prod. チバニャン) [Instrumental].mp3-344f80e115a123a44915f205722d8e4f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Soundtrack/17. 爆裂タウマゼイン (Prod. チバニャン) [Instrumental].mp3"
+dest_files=["res://.godot/imported/17. 爆裂タウマゼイン (Prod. チバニャン) [Instrumental].mp3-344f80e115a123a44915f205722d8e4f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

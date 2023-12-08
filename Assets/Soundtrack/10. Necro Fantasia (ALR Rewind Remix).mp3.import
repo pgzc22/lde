@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wiebnnvbqhjs"
+path="res://.godot/imported/10. Necro Fantasia (ALR Rewind Remix).mp3-dc75763b775b3416cf5533a20f1c171e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Soundtrack/10. Necro Fantasia (ALR Rewind Remix).mp3"
+dest_files=["res://.godot/imported/10. Necro Fantasia (ALR Rewind Remix).mp3-dc75763b775b3416cf5533a20f1c171e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

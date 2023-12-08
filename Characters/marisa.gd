@@ -162,8 +162,10 @@ func change_tune():
 func next_level(level):
 	if level == 2:
 		get_tree().change_scene_to_file("res://Levels/stage_3.tscn")
-	else:
+	elif level == 3:
 		get_tree().change_scene_to_file("res://Levels/stage_2.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Levels/menu.tscn")
 #func _on_animated_sprite_2d_animation_finished():
 #	if(animated_sprite.animation == "direction change"):
 #		animation_locked = false

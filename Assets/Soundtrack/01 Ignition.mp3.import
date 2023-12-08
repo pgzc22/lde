@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh58427ucb4il"
+path="res://.godot/imported/01 Ignition.mp3-6ecb9a52bb8b03cf5e509b9f634890aa.mp3str"
+
+[deps]
+
+source_file="res://Assets/Soundtrack/01 Ignition.mp3"
+dest_files=["res://.godot/imported/01 Ignition.mp3-6ecb9a52bb8b03cf5e509b9f634890aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

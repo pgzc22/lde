@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://tkqurxefn3l3"]
+[gd_scene load_steps=11 format=3 uid="uid://tkqurxefn3l3"]
 
 [ext_resource type="Script" path="res://Levels/Stage 1.gd" id="1_1s3st"]
 [ext_resource type="Texture2D" uid="uid://lbp7gjftxinb" path="res://Assets/gothicvania patreon collection/Gothic-Castle-Files/PNG/layers/gothic-castle-tileset.png" id="2_ur7x2"]
 [ext_resource type="PackedScene" uid="uid://cictnqv6k8xkl" path="res://Characters/reimu.tscn" id="4_o7ijw"]
 [ext_resource type="PackedScene" uid="uid://dih00kb7goy3d" path="res://Characters/marisa.tscn" id="5_hvtmt"]
 [ext_resource type="PackedScene" uid="uid://dp6t4jny153k8" path="res://Characters/flan.tscn" id="6_orbfs"]
+[ext_resource type="AudioStream" uid="uid://bh58427ucb4il" path="res://Assets/Soundtrack/01 Ignition.mp3" id="7_4n7fh"]
 [ext_resource type="PackedScene" uid="uid://cjkhix5shwteh" path="res://Scene Cutters/moving_pong.tscn" id="7_6thkx"]
+[ext_resource type="AudioStream" uid="uid://diulfv1q0wphr" path="res://Assets/Soundtrack/17. 爆裂タウマゼイン (Prod. チバニャン) [Instrumental].mp3" id="8_qgxar"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sa6b"]
 texture = ExtResource("2_ur7x2")
@@ -293,8 +295,10 @@ wait_time = 60.0
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_4n7fh")
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_qgxar")
 
 [connection signal="timeout" from="Timer1Up" to="." method="_on_timer_1_up_timeout"]
 [connection signal="timeout" from="TimerTune" to="." method="_on_timer_tune_timeout"]
